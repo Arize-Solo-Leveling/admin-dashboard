@@ -24,8 +24,8 @@ const LoginPage = () => {
             // Cookies.set("token", token);
             // Cookies.set("refreshToken", refreshToken);
             // router.push("/dashboard");
-            document.cookie = `token=${token}; path=/; samesite=strict`;
-            document.cookie = `refreshToken=${refreshToken}; path=/; samesite=strict`;
+            document.cookie = `token=${token};`;
+            document.cookie = `refreshToken=${refreshToken};t`;
             router.push("/dashboard");
         }catch(error: any){
             alert("Login failed: " + (error.response?.data?.message || error.message));
