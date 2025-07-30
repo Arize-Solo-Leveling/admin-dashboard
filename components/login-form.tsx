@@ -36,14 +36,13 @@ export function LoginForm({
         email,
         password,
       });
+     
 
       const { token, refreshToken } = response.data;
 
-      // ✅ Store in browser cookies
+      console.log("Token : ", token ,"Refresh token : " , refreshToken);
       Cookies.set("token", token, {expires : 1});
       Cookies.set("refreshToken", refreshToken, {expires : 7});
-
-      // ✅ Navigate to dashboard
       router.push("/dashboard");
     } catch (error: any) {
       console.error("Login failed:", error);
