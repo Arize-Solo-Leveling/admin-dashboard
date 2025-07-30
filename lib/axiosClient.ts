@@ -1,8 +1,6 @@
-import { rejects } from "assert";
 import axios from "axios";
-import { error } from "console";
 import Cookies from "js-cookie";
-import { resolve } from "path";
+
 
 
 const host_url = process.env.NEXT_PUBLIC_HOST_URL || "http://localhost:8080";
