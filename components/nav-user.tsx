@@ -30,7 +30,7 @@ import {
 } from "@/components/ui/sidebar"
 import { Button } from "./ui/button"
 import Cookies from "js-cookie";
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation";
 
 export function NavUser({
   user,
@@ -44,7 +44,7 @@ export function NavUser({
   const { isMobile } = useSidebar();
   const router = useRouter();
 
-  const isLogout = () => {
+  const handleLogout  = () => {
     Cookies.remove("token");
     Cookies.remove("refreshToken");
 
@@ -113,7 +113,7 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <IconLogout />
-              <Button variant="ghost" onClick={}>
+              <Button variant="ghost" onClick={handleLogout}>
                 Log out
               </Button>
             </DropdownMenuItem>
