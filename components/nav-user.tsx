@@ -28,6 +28,9 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar"
+import { Button } from "./ui/button"
+import Cookies from "js-cookie";
+import { useRouter } from "next/router"
 
 export function NavUser({
   user,
@@ -38,7 +41,20 @@ export function NavUser({
     avatar: string
   }
 }) {
-  const { isMobile } = useSidebar()
+  const { isMobile } = useSidebar();
+  const router = useRouter();
+
+  const isLogout = () => {
+    Cookies.remove("token");
+    Cookies.remove("refreshToken");
+
+
+    localStorage.clear();
+    sessionStorage.clear();
+    
+    router.push('/login');
+  }
+  
 
   return (
     <SidebarMenu>
@@ -97,7 +113,9 @@ export function NavUser({
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <IconLogout />
-              Log out
+              <Button variant="ghost" onClick={}>
+                Log out
+              </Button>
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
